@@ -22,6 +22,17 @@ export function Web3Provider({ children }) {
 
     const connectWallet = useCallback(async () => {
         try {
+            if (!NFT_CONTRACT_ADDRESS || !AUCTION_CONTRACT_ADDRESS) {
+                toast({
+                    title: "Configuration Error",
+                    description: "Smart contract addresses are not configured",
+                    status: "error",
+                    duration: 5000,
+                    isClosable: true,
+                });
+                return;
+            }
+
             if (!window.ethereum) {
                 alert('Please install MetaMask!');
                 return;
