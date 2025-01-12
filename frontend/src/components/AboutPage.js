@@ -25,7 +25,7 @@ const AboutPage = () => {
                     {/* Hero Section */}
                     <Box textAlign="center" mb={8}>
                         <Heading size="2xl" mb={4}>
-                            Sonic Frogs
+                            Sonic Frog
                         </Heading>
                         <Heading size="xl" mb={4}>
                             Bid to Earn Platform
