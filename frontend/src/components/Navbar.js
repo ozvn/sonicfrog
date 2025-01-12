@@ -1,33 +1,42 @@
-import { Link, HStack, useColorModeValue } from '@chakra-ui/react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Box, HStack, Link as ChakraLink } from '@chakra-ui/react';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
-    const linkColor = useColorModeValue('gray.700', 'white');
-    const hoverColor = useColorModeValue('blue.500', 'blue.300');
-
+    const location = useLocation();
+    
     return (
-        <HStack spacing={8} py={4} w="100%" justify="center">
-            <Link 
-                as={RouterLink} 
-                to="/"
-                color={linkColor}
-                fontWeight="medium"
-                fontSize="lg"
-                _hover={{ color: hoverColor, textDecoration: 'none' }}
-            >
-                Home
-            </Link>
-            <Link 
-                as={RouterLink} 
-                to="/about"
-                color={linkColor}
-                fontWeight="medium"
-                fontSize="lg"
-                _hover={{ color: hoverColor, textDecoration: 'none' }}
-            >
-                About
-            </Link>
-        </HStack>
+        <Box w="100%" py={4}>
+            <HStack spacing={8} justify="center">
+                <ChakraLink
+                    as={RouterLink}
+                    to="/"
+                    fontWeight={location.pathname === '/' ? 'bold' : 'normal'}
+                >
+                    Home
+                </ChakraLink>
+                <ChakraLink
+                    as={RouterLink}
+                    to="/about"
+                    fontWeight={location.pathname === '/about' ? 'bold' : 'normal'}
+                >
+                    About
+                </ChakraLink>
+                <ChakraLink
+                    as={RouterLink}
+                    to="/launch"
+                    fontWeight={location.pathname === '/launch' ? 'bold' : 'normal'}
+                >
+                    Launch
+                </ChakraLink>
+                <ChakraLink
+                    as={RouterLink}
+                    to="/marketplace"
+                    fontWeight={location.pathname === '/marketplace' ? 'bold' : 'normal'}
+                >
+                    Marketplace
+                </ChakraLink>
+            </HStack>
+        </Box>
     );
 };
 

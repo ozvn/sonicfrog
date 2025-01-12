@@ -6,6 +6,8 @@ import { FaTwitter, FaGlobe } from 'react-icons/fa';
 import AboutPage from './components/AboutPage';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import LaunchPage from './components/LaunchPage';
+import MarketplacePage from './components/MarketplacePage';
 
 function App() {
     return (
@@ -40,6 +42,8 @@ function AppContent() {
                 <Navbar />
                 <Routes>
                     <Route path="/about" element={<AboutPage />} />
+                    <Route path="/launch" element={<LaunchPage />} />
+                    <Route path="/marketplace" element={<MarketplacePage />} />
                     <Route path="/" element={
                         <>
                             <Heading 
